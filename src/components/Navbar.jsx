@@ -30,14 +30,12 @@ export default function Navbar() {
     >
       <div className="container-site">
         <nav className="flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-brand-700 flex items-center justify-center text-white font-bold text-lg">
-              GP
-            </div>
-            <div className="leading-tight">
-              <span className="block text-brand-900 font-bold text-lg">Grupo Preventivo</span>
-              <span className="block text-xs text-slate-500">Ingeniería & Mantenimiento</span>
-            </div>
+          <Link to="/" className="flex items-center gap-3">
+            <img
+              src="/logo.svg"
+              alt="Grupo Preventivo"
+              className="h-12 w-auto"
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">

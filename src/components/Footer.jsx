@@ -28,13 +28,13 @@ export default function Footer() {
       <div className="container-site px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-brand-900 font-bold text-lg">
-                GP
-              </div>
-              <div className="leading-tight">
-                <span className="block text-white font-bold text-lg">Grupo Preventivo</span>
-                <span className="block text-xs text-slate-400">Ingeniería & Mantenimiento</span>
+            <Link to="/" className="inline-block mb-4">
+              <div className="bg-white rounded-lg p-2 inline-block">
+                <img
+                  src="/logo.svg"
+                  alt="Grupo Preventivo"
+                  className="h-10 w-auto"
+                />
               </div>
             </Link>
             <p className="text-sm text-slate-400 mb-4">
