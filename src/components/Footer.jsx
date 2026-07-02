@@ -29,13 +29,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <Link to="/" className="inline-block mb-4">
-              <div className="bg-white rounded-lg p-2 inline-block">
-                <img
-                  src="/logo.svg"
-                  alt="Grupo Preventivo"
-                  className="h-10 w-auto"
-                />
-              </div>
+              <img
+                src="/logo.svg"
+                alt="Grupo Preventivo"
+                className="h-10 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-sm text-slate-400 mb-4">
               Más de 14 años brindando soluciones eléctricas e industriales confiables en Costa Rica. Su aliado estratégico en mantenimiento preventivo y correctivo.
