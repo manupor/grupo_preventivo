@@ -32,7 +32,7 @@ export default function Footer() {
               <img
                 src="/logo.svg"
                 alt="Grupo Preventivo"
-                className="h-10 w-auto brightness-0 invert"
+                className="h-14 w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-sm text-slate-400 mb-4">
