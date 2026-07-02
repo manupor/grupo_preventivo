@@ -23,8 +23,8 @@ export default function Sectors() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 className="bg-brand-800/50 border border-brand-700 rounded-xl p-6 text-center hover:bg-brand-800 transition-colors"
               >
-                <div className="w-12 h-12 mx-auto rounded-full bg-brand-700 text-energy-500 flex items-center justify-center mb-3">
-                  <Icon className="w-6 h-6" />
+                <div className="mx-auto mb-3 flex items-center justify-center">
+                  <Icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-white font-semibold">{sector.label}</h3>
               </motion.div>

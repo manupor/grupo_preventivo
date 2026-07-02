@@ -1,13 +1,24 @@
 import { motion } from 'framer-motion'
 
-export default function SectionHeader({ title, subtitle, centered = true, light = false }) {
+export default function SectionHeader({ title, subtitle, label, centered = true, light = false }) {
   return (
     <div className={`mb-12 ${centered ? 'text-center' : 'text-left'}`}>
+      {label && (
+        <motion.span
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.4 }}
+          className={`inline-block font-semibold text-sm uppercase tracking-wide mb-2 ${light ? 'text-brand-500' : 'text-energy-600'}`}
+        >
+          {label}
+        </motion.span>
+      )}
       <motion.h2
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: label ? 0.05 : 0 }}
         className={`section-title ${light ? 'text-white' : 'text-brand-900'}`}
       >
         {title}

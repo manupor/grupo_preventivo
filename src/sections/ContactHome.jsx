@@ -1,36 +1,25 @@
-import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react'
 import ContactForm from '../components/ContactForm'
+import SectionHeader from '../components/SectionHeader'
+import FadeIn from '../components/FadeIn'
 import { companyInfo } from '../data/constants'
 
 export default function ContactHome() {
   return (
     <section className="section bg-slate-50">
       <div className="container-site">
-        <div className="text-center mb-12">
-          <span className="text-energy-600 font-semibold text-sm uppercase tracking-wide">Contacto</span>
-          <h2 className="section-title mt-2">Hablemos de su proyecto</h2>
-          <p className="section-subtitle">Estamos listos para atenderle. Escríbanos, llámenos o visítenos.</p>
-        </div>
+        <SectionHeader
+          label="Contacto"
+          title="Hablemos de su proyecto"
+          subtitle="Estamos listos para atenderle. Escríbanos, llámenos o visítenos."
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-2"
-          >
+          <FadeIn direction="left" className="lg:col-span-2">
             <ContactForm />
-          </motion.div>
+          </FadeIn>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
-          >
+          <FadeIn direction="right" className="space-y-6">
             <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
               <h3 className="text-lg font-bold text-brand-900 mb-4">Información de contacto</h3>
               <ul className="space-y-4">
@@ -74,7 +63,7 @@ export default function ContactHome() {
               <MessageCircle className="w-5 h-5" />
               Escríbanos por WhatsApp
             </a>
-          </motion.div>
+          </FadeIn>
         </div>
       </div>
     </section>

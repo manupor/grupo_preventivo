@@ -1,17 +1,10 @@
-import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-export default function ProjectCard({ title, category, description, beforeImage, afterImage, client, delay = 0 }) {
+export default function ProjectCard({ title, category, description, beforeImage, afterImage, client }) {
   const [showAfter, setShowAfter] = useState(false)
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay }}
-      className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
-    >
+    <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-shadow h-full">
       <div className="relative aspect-video bg-slate-100 overflow-hidden">
         <img
           src={showAfter ? afterImage : beforeImage}
@@ -36,6 +29,6 @@ export default function ProjectCard({ title, category, description, beforeImage,
         <p className="text-xs text-energy-600 font-semibold mb-2">{client}</p>
         <p className="text-sm text-slate-600 line-clamp-3">{description}</p>
       </div>
-    </motion.div>
+    </div>
   )
 }
