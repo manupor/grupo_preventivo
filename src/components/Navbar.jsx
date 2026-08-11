@@ -24,9 +24,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur shadow-md' : 'bg-white'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur shadow-md' : 'bg-white'
+        }`}
     >
       <div className="container-site">
         <nav className="flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
@@ -44,8 +43,7 @@ export default function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    isActive ? 'text-brand-700 bg-brand-50' : 'text-slate-700 hover:text-brand-700 hover:bg-slate-50'
+                  `px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive ? 'text-brand-700 bg-brand-50' : 'text-slate-700 hover:text-brand-700 hover:bg-slate-50'
                   }`
                 }
               >
@@ -90,8 +88,7 @@ export default function Navbar() {
                 to={link.to}
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
-                  `block px-4 py-3 rounded-md text-base font-medium ${
-                    isActive ? 'text-brand-700 bg-brand-50' : 'text-slate-700 hover:bg-slate-50'
+                  `block px-4 py-3 rounded-md text-base font-medium ${isActive ? 'text-brand-700 bg-brand-50' : 'text-slate-700 hover:bg-slate-50'
                   }`
                 }
               >

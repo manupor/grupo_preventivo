@@ -13,6 +13,7 @@ const Services = lazy(() => import('./pages/Services'))
 const Projects = lazy(() => import('./pages/Projects'))
 const Clients = lazy(() => import('./pages/Clients'))
 const Blog = lazy(() => import('./pages/Blog'))
+const BlogPost = lazy(() => import('./pages/BlogPost'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Quote = lazy(() => import('./pages/Quote'))
 const Privacy = lazy(() => import('./pages/Privacy'))
@@ -34,6 +35,7 @@ function App() {
             <Route path="/proyectos" element={<Projects />} />
             <Route path="/clientes" element={<Clients />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contacto" element={<Contact />} />
             <Route path="/cotizar" element={<Quote />} />
             <Route path="/privacidad" element={<Privacy />} />

@@ -5,7 +5,6 @@ import WhyUs from '../sections/WhyUs'
 import ServicesHome from '../sections/ServicesHome'
 import Sectors from '../sections/Sectors'
 import ProjectsHome from '../sections/ProjectsHome'
-import GalleryHome from '../sections/GalleryHome'
 import FAQHome from '../sections/FAQHome'
 import ContactHome from '../sections/ContactHome'
 import CTABanner from '../components/CTABanner'
@@ -23,7 +22,6 @@ export default function Home() {
       <ServicesHome />
       <Sectors />
       <ProjectsHome />
-      <GalleryHome />
       <CTABanner
         title="¿Necesita una solución confiable para su industria?"
         description="Solicite una cotización sin compromiso y un asesor técnico le contactará en breve."

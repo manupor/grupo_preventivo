@@ -54,7 +54,7 @@ export default function About() {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-                <img src="https://placehold.co/800x600/0b1f3a/60a5fa?text=Historia+Grupo+Preventivo" alt="Historia Grupo Preventivo" className="w-full h-full object-cover" loading="lazy" />
+                <img src="/images/galeria/generadores/generador-9.png" alt="Historia Grupo Preventivo" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </motion.div>
           </div>

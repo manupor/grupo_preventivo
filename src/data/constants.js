@@ -3,7 +3,7 @@ import {
   ShieldCheck, Search, Thermometer, Droplets, Trash2, Factory,
   Settings, Building2, Stethoscope, Hotel, UtensilsCrossed, Home,
   Landmark, Briefcase, CheckCircle2, Clock, Users, MapPin, BadgeCheck,
-  HardHat, Shield,
+  HardHat, Shield, DoorClosed,
 } from 'lucide-react'
 
 export const services = [
@@ -98,7 +98,74 @@ export const services = [
     icon: Settings,
     category: 'industrial',
   },
+  {
+    id: 'espacios-confinados',
+    title: 'Trabajos en espacios confinados',
+    description: 'Ingreso, monitoreo de atmósferas y trabajos seguros en espacios confinados, con personal certificado y equipo de protección especializado.',
+    icon: DoorClosed,
+    category: 'industrial',
+  },
 ]
+
+export const serviceCategoryDetails = {
+  electricidad: {
+    title: 'Electricidad industrial y comercial',
+    intro: 'Diseñamos, instalamos y damos mantenimiento a sistemas eléctricos que garantizan la continuidad operativa de su planta, comercio o edificación, cumpliendo con la normativa vigente.',
+    capabilities: [
+      'Mantenimiento preventivo y correctivo de tableros y equipos',
+      'Instalaciones eléctricas certificadas industriales y comerciales',
+      'Diagnóstico y evaluación de transformadores',
+      'Instalación de sistemas de pararrayos',
+      'Termografías infrarrojas y análisis de calidad de energía',
+    ],
+    benefits: [
+      'Reduce fallas imprevistas y paros de producción',
+      'Prolonga la vida útil de equipos eléctricos',
+      'Cumple con la normativa costarricense de electricidad',
+      'Previene incendios y accidentes eléctricos',
+    ],
+    industries: ['Industria', 'Comercio', 'Hospitales', 'Instituciones públicas'],
+    highlights: ['Cámaras termográficas de alta resolución', 'Personal técnico certificado'],
+  },
+  energia: {
+    title: 'Alquiler y suministro de energía',
+    intro: 'Soluciones móviles de energía para mantener su operación funcionando sin interrupciones, sin importar el tamaño ni la duración del proyecto.',
+    capabilities: [
+      'Generadores de respaldo hasta 700 kW',
+      'Torres de iluminación móviles',
+      'Cables Camlock 2/0 y 4/0',
+      'Instalación, conexión y puesta en marcha',
+      'Soporte técnico durante todo el alquiler',
+    ],
+    benefits: [
+      'Continuidad operativa ante cortes de energía',
+      'Respaldo confiable para eventos y construcción',
+      'Entrega rápida a nivel nacional',
+      'Tarifas competitivas por flota propia',
+    ],
+    industries: ['Hoteles', 'Construcción', 'Eventos', 'Industria'],
+    highlights: ['Flota propia de generadores', 'Mantenimiento preventivo de equipos de alquiler'],
+  },
+  industrial: {
+    title: 'Servicios industriales especializados',
+    intro: 'Atendemos necesidades críticas de mantenimiento e higiene industrial que garantizan cumplimiento ambiental y operación segura.',
+    capabilities: [
+      'Limpieza de trampas de grasa',
+      'Limpieza de tanques sépticos',
+      'Mantenimiento de plantas de tratamiento',
+      'Trabajos en espacios confinados',
+      'Mantenimiento de bombas, compresores y sistemas críticos',
+    ],
+    benefits: [
+      'Cumplimiento de normativa ambiental',
+      'Prevención de obstrucciones y malos olores',
+      'Personal certificado para espacios confinados',
+      'Reducción de riesgos operativos',
+    ],
+    industries: ['Restaurantes', 'Hoteles', 'Condominios', 'Industria'],
+    highlights: ['Equipo de protección especializado', 'Monitoreo de atmósferas en espacios confinados'],
+  },
+}
 
 export const sectors = [
   { label: 'Industria', icon: Factory },
@@ -167,78 +234,73 @@ export const faqs = [
   },
 ]
 
-export const projects = [
+export const galleryCategories = [
   {
-    id: 1,
-    title: 'Subestación industrial – antes y después',
-    category: 'Mantenimiento eléctrico',
-    client: 'Cliente industrial',
-    description: 'Limpieza, termografía y ajuste de conexiones en subestación de 500 kVA. Se eliminaron puntos calientes y se normalizó el factor de potencia.',
-    beforeImage: 'https://placehold.co/800x450/1e293b/94a3b8?text=Antes+-+Subestación',
-    afterImage: 'https://placehold.co/800x450/0f172a/60a5fa?text=Después+-+Subestación',
-    serviceType: 'electricidad',
+    id: 'mantenimiento-electrico',
+    title: 'Mantenimiento Eléctrico',
+    industryHint: 'Industria y comercio',
+    images: [1, 3, 4, 5, 6, 7, 8, 9].map((n) => ({
+      src: `/images/galeria/mantenimiento-electrico/mantenimiento-electrico-${n}.png`,
+      alt: `Mantenimiento eléctrico ${n}`,
+    })),
   },
   {
-    id: 2,
-    title: 'Instalación de generadores de respaldo',
-    category: 'Alquiler de energía',
-    client: 'Hotel en Guanacaste',
-    description: 'Suministro de generadores de 300 kW durante temporada alta, garantizando operación continua de aires acondicionados y sistemas críticos.',
-    beforeImage: 'https://placehold.co/800x450/1e293b/94a3b8?text=Antes+-+Generadores',
-    afterImage: 'https://placehold.co/800x450/0f172a/60a5fa?text=Después+-+Generadores',
-    serviceType: 'energia',
+    id: 'generadores',
+    title: 'Generadores',
+    industryHint: 'Alquiler de energía',
+    images: [1, 2, 3, 4, 5, 7, 8, 9, 10, 11].map((n) => ({
+      src: `/images/galeria/generadores/generador-${n}.png`,
+      alt: `Generador ${n}`,
+    })),
   },
   {
-    id: 3,
-    title: 'Mantenimiento de planta de tratamiento',
-    category: 'Servicios industriales',
-    client: 'Condominio residencial',
-    description: 'Limpieza, desazolve y ajuste de PTAR, cumpliendo con requisitos ambientales y mejorando el rendimiento del sistema.',
-    beforeImage: 'https://placehold.co/800x450/1e293b/94a3b8?text=Antes+-+PTAR',
-    afterImage: 'https://placehold.co/800x450/0f172a/60a5fa?text=Después+-+PTAR',
-    serviceType: 'industrial',
+    id: 'equipos',
+    title: 'Equipos',
+    industryHint: 'Flota propia',
+    images: [1, 2, 3].map((n) => ({
+      src: `/images/galeria/equipos/equipo-${n}.png`,
+      alt: `Equipo ${n}`,
+    })),
   },
   {
-    id: 4,
-    title: 'Termografía de tableros eléctricos',
-    category: 'Termografías',
-    client: 'Centro comercial',
-    description: 'Inspección térmica en tableros principales y secundarios, identificando conexiones defectuosas y previendo fallas mayores.',
-    beforeImage: 'https://placehold.co/800x450/1e293b/94a3b8?text=Antes+-+Termografía',
-    afterImage: 'https://placehold.co/800x450/0f172a/60a5fa?text=Después+-+Termografía',
-    serviceType: 'electricidad',
+    id: 'espacios-confinados',
+    title: 'Espacios Confinados',
+    industryHint: 'Servicios industriales',
+    images: [1, 2].map((n) => ({
+      src: `/images/galeria/espacios-confinados/espacio-confinado-${n}.png`,
+      alt: `Trabajo en espacio confinado ${n}`,
+    })),
   },
   {
-    id: 5,
-    title: 'Limpieza de trampas de grasa',
-    category: 'Servicios industriales',
-    client: 'Restaurante',
-    description: 'Limpieza profunda de trampa de grasa y líneas de desague, eliminando olores y riesgos de obstrucción.',
-    beforeImage: 'https://placehold.co/800x450/1e293b/94a3b8?text=Antes+-+Trampa',
-    afterImage: 'https://placehold.co/800x450/0f172a/60a5fa?text=Después+-+Trampa',
-    serviceType: 'industrial',
+    id: 'pararrayos',
+    title: 'Pararrayos',
+    industryHint: 'Protección eléctrica',
+    images: [1, 2, 3, 4, 5, 6].map((n) => ({
+      src: `/images/galeria/pararrayos/pararrayo-${n}.png`,
+      alt: `Pararrayos ${n}`,
+    })),
   },
   {
-    id: 6,
-    title: 'Iluminación de obra con torres móviles',
-    category: 'Alquiler de equipos',
-    client: 'Constructora',
-    description: 'Instalación de torres de iluminación en obra de infraestructura para trabajo nocturno seguro.',
-    beforeImage: 'https://placehold.co/800x450/1e293b/94a3b8?text=Antes+-+Obra',
-    afterImage: 'https://placehold.co/800x450/0f172a/60a5fa?text=Después+-+Obra',
-    serviceType: 'energia',
+    id: 'transformadores',
+    title: 'Transformadores',
+    industryHint: 'Distribución eléctrica',
+    images: [1, 2, 3, 4, 5, 6].map((n) => ({
+      src: `/images/galeria/transformadores/transformador-${n}.png`,
+      alt: `Transformador ${n}`,
+    })),
   },
-]
-
-export const gallery = [
-  { id: 1, src: 'https://placehold.co/800x600/1e293b/94a3b8?text=Personal+GP', alt: 'Personal de Grupo Preventivo', category: 'personal' },
-  { id: 2, src: 'https://placehold.co/800x600/0f172a/60a5fa?text=Vehículos+y+equipos', alt: 'Vehículos y equipos', category: 'equipos' },
-  { id: 3, src: 'https://placehold.co/800x600/1e293b/94a3b8?text=Trabajo+eléctrico', alt: 'Trabajo eléctrico', category: 'trabajos' },
-  { id: 4, src: 'https://placehold.co/800x600/0f172a/60a5fa?text=Instalación+industrial', alt: 'Instalación industrial', category: 'instalaciones' },
-  { id: 5, src: 'https://placehold.co/800x600/1e293b/94a3b8?text=Generador', alt: 'Generador de respaldo', category: 'equipos' },
-  { id: 6, src: 'https://placehold.co/800x600/0f172a/60a5fa?text=Torre+de+iluminación', alt: 'Torre de iluminación', category: 'equipos' },
-  { id: 7, src: 'https://placehold.co/800x600/1e293b/94a3b8?text=Termografía', alt: 'Termografía', category: 'trabajos' },
-  { id: 8, src: 'https://placehold.co/800x600/0f172a/60a5fa?text=Planta+de+tratamiento', alt: 'Planta de tratamiento', category: 'instalaciones' },
+  {
+    id: 'termografias',
+    title: 'Termografías',
+    industryHint: 'Diagnóstico predictivo',
+    images: [
+      { n: 1, ext: 'jpg' }, { n: 2, ext: 'jpg' }, { n: 3, ext: 'png' },
+      { n: 4, ext: 'png' }, { n: 5, ext: 'png' }, { n: 6, ext: 'jpg' },
+    ].map(({ n, ext }) => ({
+      src: `/images/galeria/termografias/termografia-${n}.${ext}`,
+      alt: `Termografía ${n}`,
+    })),
+  },
 ]
 
 export const testimonials = [

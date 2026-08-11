@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import ServiceCard from '../components/ServiceCard'
 import SectionHeader from '../components/SectionHeader'
 import CTABanner from '../components/CTABanner'
-import { services } from '../data/constants'
+import { services, serviceCategoryDetails } from '../data/constants'
 
 const filters = [
   { label: 'Todos', value: 'all' },
@@ -19,6 +21,8 @@ export default function Services() {
   const filteredServices = activeFilter === 'all'
     ? services
     : services.filter((s) => s.category === activeFilter)
+
+  const activeDetail = activeFilter !== 'all' ? serviceCategoryDetails[activeFilter] : null
 
   return (
     <>
@@ -43,11 +47,10 @@ export default function Services() {
               <button
                 key={filter.value}
                 onClick={() => setActiveFilter(filter.value)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  activeFilter === filter.value
-                    ? 'bg-brand-700 text-white'
-                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === filter.value
+                  ? 'bg-brand-700 text-white'
+                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                  }`}
               >
                 {filter.label}
               </button>
@@ -73,6 +76,93 @@ export default function Services() {
               </motion.div>
             ))}
           </div>
+
+          <AnimatePresence mode="wait">
+            {activeDetail && (
+              <motion.div
+                key={activeFilter}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.35 }}
+                className="mt-16 bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-10"
+              >
+                <div className="flex items-center gap-2 text-energy-600 font-semibold text-sm uppercase tracking-wide mb-3">
+                  <Sparkles className="w-4 h-4" />
+                  <span>Especialidad</span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-brand-900 mb-4">
+                  {activeDetail.title}
+                </h3>
+                <p className="text-slate-600 text-lg max-w-3xl mb-10">{activeDetail.intro}</p>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
+                  <div>
+                    <h4 className="font-bold text-brand-900 mb-4">Alcance del servicio</h4>
+                    <ul className="space-y-3">
+                      {activeDetail.capabilities.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-slate-700">
+                          <CheckCircle2 className="w-5 h-5 text-brand-600 flex-shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-bold text-brand-900 mb-4">Beneficios para su operación</h4>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      {activeDetail.benefits.map((item) => (
+                        <div
+                          key={item}
+                          className="bg-white border border-slate-200 rounded-lg p-4 text-sm text-slate-700"
+                        >
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border-t border-slate-200 pt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                  <div>
+                    <h4 className="font-bold text-brand-900 mb-3">Industrias y aplicaciones</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {activeDetail.industries.map((industry) => (
+                        <span
+                          key={industry}
+                          className="px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 text-sm font-medium"
+                        >
+                          {industry}
+                        </span>
+                      ))}
+                    </div>
+
+                    {activeDetail.highlights && (
+                      <ul className="mt-6 space-y-2">
+                        {activeDetail.highlights.map((item) => (
+                          <li key={item} className="text-sm text-slate-500 flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-energy-500" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+
+                  <div className="flex flex-col items-start md:items-end gap-3">
+                    <p className="text-slate-600 text-sm md:text-right max-w-xs">
+                      ¿Necesita esta especialidad para su operación? Un asesor técnico le ayuda a definir el alcance.
+                    </p>
+                    <Link to="/cotizar" className="btn-primary">
+                      Solicitar cotización
+                      <ArrowRight className="w-5 h-5" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 

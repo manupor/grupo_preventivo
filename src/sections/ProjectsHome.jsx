@@ -1,23 +1,22 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import ProjectCard from '../components/ProjectCard'
 import SectionHeader from '../components/SectionHeader'
 import FadeIn from '../components/FadeIn'
-import { projects } from '../data/constants'
-
-const filters = [
-  { label: 'Todos', value: 'all' },
-  { label: 'Electricidad', value: 'electricidad' },
-  { label: 'Energía', value: 'energia' },
-  { label: 'Industrial', value: 'industrial' },
-]
+import Lightbox from '../components/Lightbox'
+import { galleryCategories } from '../data/constants'
 
 export default function ProjectsHome() {
-  const [activeFilter, setActiveFilter] = useState('all')
+  const [activeTab, setActiveTab] = useState(galleryCategories[0].id)
+  const [lightboxIndex, setLightboxIndex] = useState(null)
 
-  const filteredProjects = activeFilter === 'all'
-    ? projects.slice(0, 4)
-    : projects.filter((p) => p.serviceType === activeFilter).slice(0, 4)
+  const activeCategory = galleryCategories.find((cat) => cat.id === activeTab)
+
+  const openLightbox = (index) => setLightboxIndex(index)
+  const closeLightbox = () => setLightboxIndex(null)
+  const prevImage = () =>
+    setLightboxIndex((i) => (i - 1 + activeCategory.images.length) % activeCategory.images.length)
+  const nextImage = () =>
+    setLightboxIndex((i) => (i + 1) % activeCategory.images.length)
 
   return (
     <section className="section bg-slate-50">
@@ -25,36 +24,42 @@ export default function ProjectsHome() {
         <SectionHeader
           label="Proyectos"
           title="Resultados que respaldan nuestra experiencia"
-          subtitle="Conozca algunos de los proyectos que hemos ejecutado para clientes en diferentes sectores."
+          subtitle="Conozca fotografías reales de nuestros trabajos, organizadas por especialidad."
         />
 
         <FadeIn className="flex flex-wrap justify-center gap-2 mb-10" delay={0.1}>
-          {filters.map((filter) => (
+          {galleryCategories.map((cat) => (
             <button
-              key={filter.value}
-              onClick={() => setActiveFilter(filter.value)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeFilter === filter.value
+              key={cat.id}
+              onClick={() => setActiveTab(cat.id)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === cat.id
                   ? 'bg-brand-700 text-white'
                   : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
-              }`}
+                }`}
             >
-              {filter.label}
+              {cat.title}
             </button>
           ))}
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredProjects.map((project, index) => (
-            <FadeIn key={project.id} delay={index * 0.1}>
-              <ProjectCard
-                title={project.title}
-                category={project.category}
-                description={project.description}
-                beforeImage={project.beforeImage}
-                afterImage={project.afterImage}
-                client={project.client}
-              />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {activeCategory.images.map((item, index) => (
+            <FadeIn key={`${activeCategory.id}-${index}`} delay={index * 0.05}>
+              <button
+                type="button"
+                onClick={() => openLightbox(index)}
+                className="group relative overflow-hidden rounded-xl aspect-square w-full"
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                  <span className="text-white font-medium text-sm">{item.alt}</span>
+                </div>
+              </button>
             </FadeIn>
           ))}
         </div>
@@ -65,6 +70,17 @@ export default function ProjectsHome() {
           </Link>
         </FadeIn>
       </div>
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={activeCategory.images}
+          index={lightboxIndex}
+          title={activeCategory.title}
+          onClose={closeLightbox}
+          onPrev={prevImage}
+          onNext={nextImage}
+        />
+      )}
     </section>
   )
 }

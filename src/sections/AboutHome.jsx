@@ -23,8 +23,8 @@ export default function AboutHome() {
               centered={false}
             />
             <p className="text-slate-600 mb-6 leading-relaxed">
-              Grupo Preventivo nace con el compromiso de ofrecer soluciones integrales en ingeniería y mantenimiento industrial. 
-              A lo largo de más de 14 años hemos acompañado a empresas de diversos sectores, ayudándolas a prevenir fallas, 
+              Grupo Preventivo nace con el compromiso de ofrecer soluciones integrales en ingeniería y mantenimiento industrial.
+              A lo largo de más de 14 años hemos acompañado a empresas de diversos sectores, ayudándolas a prevenir fallas,
               cumplir normativas y mantener sus instalaciones funcionando con confiabilidad y eficiencia.
             </p>
             <ul className="space-y-3 mb-8">
@@ -43,7 +43,7 @@ export default function AboutHome() {
           <FadeIn direction="right" className="relative">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="https://placehold.co/800x600/0b1f3a/60a5fa?text=Equipo+Grupo+Preventivo"
+                src="/images/galeria/generadores/generador-9.png"
                 alt="Equipo de Grupo Preventivo"
                 className="w-full h-full object-cover"
                 loading="lazy"
