@@ -19,7 +19,7 @@ export default function CTABanner({ title, description, buttonText = 'Solicitar 
           </div>
           <Link
             to={buttonHref}
-            className="btn-primary bg-energy-500 hover:bg-energy-600 text-brand-900 whitespace-nowrap"
+            className="btn-primary bg-white hover:bg-slate-100 text-brand-700 whitespace-nowrap"
           >
             {buttonText}
             <ArrowRight className="w-5 h-5" />
