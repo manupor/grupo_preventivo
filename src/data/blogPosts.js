@@ -83,7 +83,7 @@ export const blogPosts = [
     category: 'Servicios industriales',
     date: '2024-05-10',
     readTime: '4 min',
-    image: '/images/galeria/equipos/equipo-2.png',
+    image: '/images/blog/limp-trampas-grasa.JPG',
     content: [
       {
         heading: 'Qué es una trampa de grasa y por qué es obligatoria',
