@@ -54,11 +54,11 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="tel:+50600000000"
+              href="tel:+50687121650"
               className="inline-flex items-center gap-2 text-sm font-medium text-brand-700 hover:text-brand-800"
             >
               <Phone className="w-4 h-4" />
-              <span>0000-0000</span>
+              <span>8712-1650</span>
             </a>
             <Link
               to="/cotizar"

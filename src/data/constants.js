@@ -327,12 +327,12 @@ export const testimonials = [
 export const companyInfo = {
   name: 'Grupo Preventivo',
   slogan: 'Ingeniería en Mantenimiento Industrial',
-  phone: '+506 0000-0000',
+  phone: '+506 8712-1650',
   email: 'info@grupopreventivo.com',
   address: 'Costa Rica',
   schedule: 'Lunes a viernes: 7:00 a.m. - 5:00 p.m.',
   years: 14,
-  whatsapp: '50600000000',
+  whatsapp: '50687121650',
 }
 
 export const navLinks = [

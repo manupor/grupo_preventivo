@@ -1,6 +1,6 @@
 import { MessageCircle } from 'lucide-react'
 
-const PHONE = '50600000000' // TODO: reemplazar con número real de Grupo Preventivo
+const PHONE = '50687121650'
 const MESSAGE = 'Hola,%20me%20interesa%20solicitar%20una%20cotización%20con%20Grupo%20Preventivo.'
 
 export default function WhatsAppButton() {
