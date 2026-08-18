@@ -23,13 +23,15 @@ export default function BlogPost() {
 
       <section className="pt-32 pb-12 bg-brand-900">
         <div className="container-site px-4 sm:px-6 lg:px-8">
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 text-brand-200 hover:text-white text-sm font-medium mb-6 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Volver al blog
-          </Link>
+          <div className="mb-6">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-brand-900 hover:bg-brand-100 text-sm font-medium shadow-sm transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Volver al blog
+            </Link>
+          </div>
           <span className="inline-block px-3 py-1 rounded-full bg-brand-800/60 border border-brand-700 text-brand-100 text-xs font-semibold uppercase tracking-wide mb-4">
             {post.category}
           </span>

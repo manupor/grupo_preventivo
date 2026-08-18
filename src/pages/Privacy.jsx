@@ -35,7 +35,7 @@ export default function Privacy() {
           <p className="text-slate-600 mb-4">Este sitio puede utilizar cookies y herramientas de analítica (como Google Analytics) para mejorar el rendimiento y la experiencia del usuario. Puede configurar su navegador para rechazar cookies.</p>
 
           <h2 className="text-2xl font-bold text-brand-900 mt-8 mb-4">6. Derechos del usuario</h2>
-          <p className="text-slate-600 mb-4">Usted puede solicitar acceso, rectificación o eliminación de sus datos personales escribiendo a info@grupopreventivo.com.</p>
+          <p className="text-slate-600 mb-4">Usted puede solicitar acceso, rectificación o eliminación de sus datos personales escribiendo a julio.arguedas@grupopreventivo.com.</p>
 
           <p className="text-slate-600 mt-8">Esta política puede actualizarse periódicamente. Le recomendamos revisarla con regularidad.</p>
         </div>

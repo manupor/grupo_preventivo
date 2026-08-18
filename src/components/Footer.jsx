@@ -76,7 +76,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 mt-0.5 text-energy-500" />
-                <span>info@grupopreventivo.com</span>
+                <span>julio.arguedas@grupopreventivo.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 text-energy-500" />
